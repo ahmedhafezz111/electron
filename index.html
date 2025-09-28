@@ -1,0 +1,91 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tab Tracker</title>
+    <style>
+      body { font-family: Arial, sans-serif; padding: 20px; }
+      table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+      th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+      th { background-color: #f4f4f4; }
+      img { max-width: 200px; border: 1px solid #ccc; }
+    </style>
+  </head>
+  <body>
+    <h1>Active Window Tracker</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>App</th>
+          <th>Title</th>
+          <th>Duration (sec)</th>
+          <th>Screenshot</th>
+        </tr>
+      </thead>
+      <tbody id="logTable"></tbody>
+    </table>
+
+    <script>
+      const { ipcRenderer } = require('electron');
+
+      ipcRenderer.on('tab-duration', (event, data) => {
+        const table = document.getElementById('logTable');
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${data.app}</td>
+          <td>${data.title}</td>
+          <td>${data.duration}</td>
+          <td><img src="${data.screenshot}" alt="Screenshot"></td>
+        `;
+        table.prepend(row); // add new entries at the top
+      });
+    </script>
+  </body>
+</html>
+=======
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tab Tracker</title>
+    <style>
+      body { font-family: Arial, sans-serif; padding: 20px; }
+      table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+      th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+      th { background-color: #f4f4f4; }
+      img { max-width: 200px; border: 1px solid #ccc; }
+    </style>
+  </head>
+  <body>
+    <h1>Active Window Tracker</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>App</th>
+          <th>Title</th>
+          <th>Duration (sec)</th>
+          <th>Screenshot</th>
+        </tr>
+      </thead>
+      <tbody id="logTable"></tbody>
+    </table>
+
+    <script>
+      const { ipcRenderer } = require('electron');
+
+      ipcRenderer.on('tab-duration', (event, data) => {
+        const table = document.getElementById('logTable');
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${data.app}</td>
+          <td>${data.title}</td>
+          <td>${data.duration}</td>
+          <td><img src="${data.screenshot}" alt="Screenshot"></td>
+        `;
+        table.prepend(row); // add new entries at the top
+      });
+    </script>
+  </body>
+</html>
+>>>>>>> d98d804d51ee14cd387c85411b81f43718c0e6ff
